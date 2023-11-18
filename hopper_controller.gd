@@ -5,6 +5,7 @@ extends RigidBody2D
 @export var max_rotational_offset: float
 
 @onready var particles_fire: GPUParticles2D = %ParticlesFire
+@onready var audio_engine: AudioStreamPlayer2D = %AudioEngine
 
 var rotational_offset: float = 0.0
 
@@ -25,7 +26,12 @@ func _process(delta: float) -> void:
 	
 	if is_throttling:
 		apply_force(-transform.y * force_power, transform.x * rotational_offset * rotate_power)
+		if not audio_engine.playing:
+			audio_engine.play()
+	else:
+		audio_engine.stop()
 		
+	#audio_engine.playing = is_throttling
 	particles_fire.emitting = is_throttling
 		
 	rotational_offset *= 0.98

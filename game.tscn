@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://d31x4j4vwnl8r"]
+[gd_scene load_steps=14 format=3 uid="uid://d31x4j4vwnl8r"]
 
 [ext_resource type="Texture2D" uid="uid://dl7ycs1ynhdqf" path="res://hopper.png" id="1_ma4h7"]
 [ext_resource type="Script" path="res://hopper_controller.gd" id="1_rxux5"]
 [ext_resource type="Script" path="res://camera_follow.gd" id="3_gopa4"]
+[ext_resource type="AudioStream" uid="uid://4mbejelgh2mv" path="res://rocket_engine.ogg" id="3_nrcaq"]
 
 [sub_resource type="Gradient" id="Gradient_3egah"]
 offsets = PackedFloat32Array(0, 0.514539, 1)
@@ -52,7 +53,7 @@ gradient = SubResource("Gradient_lyp7o")
 width = 16000
 height = 2000
 
-[node name="Node2D" type="Node2D"]
+[node name="Game" type="Node2D"]
 
 [node name="Hopper" type="RigidBody2D" parent="."]
 position = Vector2(-169, 47)
@@ -79,6 +80,10 @@ texture = ExtResource("1_ma4h7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hopper"]
 shape = SubResource("RectangleShape2D_vw05s")
+
+[node name="AudioEngine" type="AudioStreamPlayer2D" parent="Hopper"]
+unique_name_in_owner = true
+stream = ExtResource("3_nrcaq")
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 1254)
