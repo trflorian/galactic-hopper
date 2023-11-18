@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game/game_manager.gd" id="1_jd4hy"]
 [ext_resource type="Script" path="res://hopper/hopper_controller.gd" id="2_bsm74"]
-[ext_resource type="PackedScene" path="res://explosion/explosion.tscn" id="3_vcyqk"]
+[ext_resource type="PackedScene" uid="uid://udrmyly50ywo" path="res://explosion/explosion.tscn" id="3_vcyqk"]
 [ext_resource type="PackedScene" uid="uid://bvr0no1f3tlvt" path="res://parts/hopper_parts_spawner.tscn" id="4_2gcai"]
 [ext_resource type="Texture2D" uid="uid://dl7ycs1ynhdqf" path="res://hopper/hopper.png" id="5_ysa5t"]
 [ext_resource type="AudioStream" uid="uid://fyx1pvxbus7f" path="res://hopper/rocket_engine.ogg" id="6_d028x"]
