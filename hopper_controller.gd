@@ -35,4 +35,4 @@ func _process(delta: float) -> void:
 	#audio_engine.playing = is_throttling
 	particles_fire.emitting = is_throttling
 		
-	rotational_offset *= 0.98
+	rotational_offset *= 0.9

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b3dtw5sbn7274"]
+[gd_scene load_steps=28 format=3 uid="uid://b3dtw5sbn7274"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_88k0f"]
 [ext_resource type="Texture2D" uid="uid://dl7ycs1ynhdqf" path="res://hopper.png" id="1_ma4h7"]
@@ -12,6 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://lpfttdkl1xap" path="res://foliage/sprite_0055.png" id="10_xcm1e"]
 [ext_resource type="Texture2D" uid="uid://bijvua2h185s" path="res://foliage/sprite_0056.png" id="11_2rhh1"]
 [ext_resource type="Texture2D" uid="uid://j06bbkp2su7p" path="res://foliage/sprite_0057.png" id="12_s0608"]
+[ext_resource type="Script" path="res://cloud_spawner.gd" id="13_swwjy"]
+[ext_resource type="Texture2D" uid="uid://bmm06sjpm3t7j" path="res://clouds/cloud0.png" id="14_dt30p"]
+[ext_resource type="Texture2D" uid="uid://ww61o4o1b5gl" path="res://clouds/cloud1.png" id="15_xjicp"]
+[ext_resource type="Texture2D" uid="uid://bapfbqyr8rqxm" path="res://clouds/cloud2.png" id="16_kx03f"]
+[ext_resource type="Texture2D" uid="uid://27sh84qdbbum" path="res://clouds/cloud5.png" id="17_4jwtx"]
+[ext_resource type="Texture2D" uid="uid://dg7p10068t0ss" path="res://clouds/cloud6.png" id="18_stdfp"]
 
 [sub_resource type="Gradient" id="Gradient_3egah"]
 offsets = PackedFloat32Array(0, 0.514539, 1)
@@ -113,3 +119,13 @@ scale_min = 0.01
 scale_max = 0.04
 foliage_cnt = 1000
 foliage_scenes = Array[Texture2D]([ExtResource("6_34wln"), ExtResource("8_qugmk"), ExtResource("9_reui6"), ExtResource("10_xcm1e"), ExtResource("11_2rhh1"), ExtResource("12_s0608")])
+
+[node name="CloudsSpawner" type="Node2D" parent="."]
+script = ExtResource("13_swwjy")
+world_limit_x = 8000.0
+cloud_start_y = 400.0
+world_limit_y = 2000.0
+scale_min = 0.8
+scale_max = 1.2
+clouds_cnt = 50
+clouds_scenes = Array[Texture2D]([ExtResource("14_dt30p"), ExtResource("15_xjicp"), ExtResource("16_kx03f"), ExtResource("17_4jwtx"), ExtResource("18_stdfp")])
