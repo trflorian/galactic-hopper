@@ -1,10 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://d31x4j4vwnl8r"]
+[gd_scene load_steps=22 format=3 uid="uid://d31x4j4vwnl8r"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_88k0f"]
 [ext_resource type="Texture2D" uid="uid://dl7ycs1ynhdqf" path="res://hopper.png" id="1_ma4h7"]
 [ext_resource type="Script" path="res://hopper_controller.gd" id="1_rxux5"]
 [ext_resource type="Script" path="res://camera_follow.gd" id="3_gopa4"]
 [ext_resource type="AudioStream" uid="uid://4mbejelgh2mv" path="res://rocket_engine.ogg" id="3_nrcaq"]
+[ext_resource type="Texture2D" uid="uid://dpdf5x13sro56" path="res://foliage/sprite_0052.png" id="6_34wln"]
+[ext_resource type="Script" path="res://foliage_spawner.gd" id="6_pgjv6"]
+[ext_resource type="Texture2D" uid="uid://brma1kguvx52l" path="res://foliage/sprite_0053.png" id="8_qugmk"]
+[ext_resource type="Texture2D" uid="uid://dqlrf778ek3ee" path="res://foliage/sprite_0054.png" id="9_reui6"]
+[ext_resource type="Texture2D" uid="uid://lpfttdkl1xap" path="res://foliage/sprite_0055.png" id="10_xcm1e"]
+[ext_resource type="Texture2D" uid="uid://bijvua2h185s" path="res://foliage/sprite_0056.png" id="11_2rhh1"]
+[ext_resource type="Texture2D" uid="uid://j06bbkp2su7p" path="res://foliage/sprite_0057.png" id="12_s0608"]
 
 [sub_resource type="Gradient" id="Gradient_3egah"]
 offsets = PackedFloat32Array(0, 0.514539, 1)
@@ -58,7 +65,7 @@ height = 2000
 script = ExtResource("1_88k0f")
 
 [node name="Hopper" type="RigidBody2D" parent="."]
-position = Vector2(-169, 208)
+position = Vector2(2, -64)
 mass = 100.0
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 5)
@@ -88,7 +95,7 @@ unique_name_in_owner = true
 stream = ExtResource("3_nrcaq")
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(0, 1254)
+position = Vector2(0, 1000)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource("RectangleShape2D_3foxo")
@@ -97,6 +104,13 @@ shape = SubResource("RectangleShape2D_3foxo")
 texture = SubResource("GradientTexture2D_8o72e")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
-position = Vector2(-169, 208)
+position = Vector2(0, -62)
 script = ExtResource("3_gopa4")
 target_node = NodePath("../Hopper")
+
+[node name="FoliageSpawner" type="Node2D" parent="."]
+script = ExtResource("6_pgjv6")
+scale_min = 0.01
+scale_max = 0.04
+foliage_cnt = 1000
+foliage_scenes = Array[Texture2D]([ExtResource("6_34wln"), ExtResource("8_qugmk"), ExtResource("9_reui6"), ExtResource("10_xcm1e"), ExtResource("11_2rhh1"), ExtResource("12_s0608")])

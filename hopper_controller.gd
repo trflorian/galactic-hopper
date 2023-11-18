@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 			audio_engine.play()
 	else:
 		audio_engine.stop()
+		rotational_offset = 0.0
 		
 	#audio_engine.playing = is_throttling
 	particles_fire.emitting = is_throttling
