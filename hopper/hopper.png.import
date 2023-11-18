@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7a5fbjbrrqs7"
-path="res://.godot/imported/part4.png-5b3ce797e17c295b71066610a8b2ffe2.ctex"
+uid="uid://dl7ycs1ynhdqf"
+path="res://.godot/imported/hopper.png-4d58e7fc92bd15b37f2c30bead66f665.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://parts/part4.png"
-dest_files=["res://.godot/imported/part4.png-5b3ce797e17c295b71066610a8b2ffe2.ctex"]
+source_file="res://hopper/hopper.png"
+dest_files=["res://.godot/imported/hopper.png-4d58e7fc92bd15b37f2c30bead66f665.ctex"]
 
 [params]
 

@@ -1,25 +1,25 @@
-[gd_scene load_steps=30 format=3 uid="uid://b3dtw5sbn7274"]
+[gd_scene load_steps=30 format=3 uid="uid://b3nkxetd7es1k"]
 
-[ext_resource type="Script" path="res://game_manager.gd" id="1_88k0f"]
-[ext_resource type="Texture2D" uid="uid://dl7ycs1ynhdqf" path="res://hopper.png" id="1_ma4h7"]
-[ext_resource type="Script" path="res://hopper_controller.gd" id="1_rxux5"]
-[ext_resource type="Script" path="res://camera_follow.gd" id="3_gopa4"]
-[ext_resource type="AudioStream" uid="uid://fyx1pvxbus7f" path="res://rocket_engine.ogg" id="3_nrcaq"]
-[ext_resource type="PackedScene" uid="uid://brwskfdi77u5j" path="res://explosion.tscn" id="3_tkogy"]
-[ext_resource type="Texture2D" uid="uid://dpdf5x13sro56" path="res://foliage/sprite_0052.png" id="6_34wln"]
-[ext_resource type="Script" path="res://foliage_spawner.gd" id="6_pgjv6"]
-[ext_resource type="Texture2D" uid="uid://brma1kguvx52l" path="res://foliage/sprite_0053.png" id="8_qugmk"]
-[ext_resource type="Texture2D" uid="uid://dqlrf778ek3ee" path="res://foliage/sprite_0054.png" id="9_reui6"]
-[ext_resource type="Texture2D" uid="uid://lpfttdkl1xap" path="res://foliage/sprite_0055.png" id="10_xcm1e"]
-[ext_resource type="Texture2D" uid="uid://bijvua2h185s" path="res://foliage/sprite_0056.png" id="11_2rhh1"]
-[ext_resource type="Texture2D" uid="uid://j06bbkp2su7p" path="res://foliage/sprite_0057.png" id="12_s0608"]
-[ext_resource type="Script" path="res://cloud_spawner.gd" id="13_swwjy"]
-[ext_resource type="Texture2D" uid="uid://bmm06sjpm3t7j" path="res://clouds/cloud0.png" id="14_dt30p"]
-[ext_resource type="Texture2D" uid="uid://ww61o4o1b5gl" path="res://clouds/cloud1.png" id="15_xjicp"]
-[ext_resource type="Texture2D" uid="uid://bapfbqyr8rqxm" path="res://clouds/cloud2.png" id="16_kx03f"]
-[ext_resource type="Texture2D" uid="uid://27sh84qdbbum" path="res://clouds/cloud5.png" id="17_4jwtx"]
-[ext_resource type="Texture2D" uid="uid://dg7p10068t0ss" path="res://clouds/cloud6.png" id="18_stdfp"]
-[ext_resource type="PackedScene" uid="uid://bvr0no1f3tlvt" path="res://hopper_parts_spawner.tscn" id="20_bg15u"]
+[ext_resource type="Script" path="res://game/game_manager.gd" id="1_jd4hy"]
+[ext_resource type="Script" path="res://hopper/hopper_controller.gd" id="2_bsm74"]
+[ext_resource type="PackedScene" path="res://explosion/explosion.tscn" id="3_vcyqk"]
+[ext_resource type="PackedScene" uid="uid://bvr0no1f3tlvt" path="res://parts/hopper_parts_spawner.tscn" id="4_2gcai"]
+[ext_resource type="Texture2D" uid="uid://dl7ycs1ynhdqf" path="res://hopper/hopper.png" id="5_ysa5t"]
+[ext_resource type="AudioStream" uid="uid://fyx1pvxbus7f" path="res://hopper/rocket_engine.ogg" id="6_d028x"]
+[ext_resource type="Script" path="res://game/camera_follow.gd" id="7_qccmb"]
+[ext_resource type="Script" path="res://foliage/foliage_spawner.gd" id="8_regcs"]
+[ext_resource type="Texture2D" uid="uid://dpdf5x13sro56" path="res://foliage/sprite_0052.png" id="9_dkk2y"]
+[ext_resource type="Texture2D" uid="uid://brma1kguvx52l" path="res://foliage/sprite_0053.png" id="10_ym7cy"]
+[ext_resource type="Texture2D" uid="uid://dqlrf778ek3ee" path="res://foliage/sprite_0054.png" id="11_sr07q"]
+[ext_resource type="Texture2D" uid="uid://lpfttdkl1xap" path="res://foliage/sprite_0055.png" id="12_e6tjy"]
+[ext_resource type="Texture2D" uid="uid://bijvua2h185s" path="res://foliage/sprite_0056.png" id="13_pkrlk"]
+[ext_resource type="Texture2D" uid="uid://j06bbkp2su7p" path="res://foliage/sprite_0057.png" id="14_hvqmi"]
+[ext_resource type="Script" path="res://clouds/cloud_spawner.gd" id="15_3huvx"]
+[ext_resource type="Texture2D" uid="uid://bmm06sjpm3t7j" path="res://clouds/cloud0.png" id="16_k3vcf"]
+[ext_resource type="Texture2D" uid="uid://ww61o4o1b5gl" path="res://clouds/cloud1.png" id="17_6ymob"]
+[ext_resource type="Texture2D" uid="uid://bapfbqyr8rqxm" path="res://clouds/cloud2.png" id="18_yo0n5"]
+[ext_resource type="Texture2D" uid="uid://27sh84qdbbum" path="res://clouds/cloud5.png" id="19_lw352"]
+[ext_resource type="Texture2D" uid="uid://dg7p10068t0ss" path="res://clouds/cloud6.png" id="20_1yxvn"]
 
 [sub_resource type="Gradient" id="Gradient_3egah"]
 offsets = PackedFloat32Array(0, 0.514539, 1)
@@ -70,7 +70,7 @@ height = 2000
 size = Vector2(15996, 1992)
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_88k0f")
+script = ExtResource("1_jd4hy")
 
 [node name="Hopper" type="RigidBody2D" parent="."]
 position = Vector2(2, -64)
@@ -81,12 +81,12 @@ max_contacts_reported = 1
 contact_monitor = true
 linear_damp = 1.419
 angular_damp = 1.892
-script = ExtResource("1_rxux5")
+script = ExtResource("2_bsm74")
 force_power = 200000.0
 rotate_power = 0.5
 max_rotational_offset = 15.0
-particles_explosion = ExtResource("3_tkogy")
-parts_explosion = ExtResource("20_bg15u")
+particles_explosion = ExtResource("3_vcyqk")
+parts_explosion = ExtResource("4_2gcai")
 
 [node name="ParticlesFire" type="GPUParticles2D" parent="Hopper"]
 unique_name_in_owner = true
@@ -96,14 +96,14 @@ process_material = SubResource("ParticleProcessMaterial_icb4k")
 
 [node name="Sprite" type="Sprite2D" parent="Hopper"]
 scale = Vector2(0.340136, 0.340136)
-texture = ExtResource("1_ma4h7")
+texture = ExtResource("5_ysa5t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hopper"]
 shape = SubResource("RectangleShape2D_vw05s")
 
 [node name="AudioEngine" type="AudioStreamPlayer2D" parent="Hopper"]
 unique_name_in_owner = true
-stream = ExtResource("3_nrcaq")
+stream = ExtResource("6_d028x")
 
 [node name="Ground" type="RigidBody2D" parent="."]
 position = Vector2(0, 1000)
@@ -117,22 +117,22 @@ shape = SubResource("RectangleShape2D_3foxo")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
 position = Vector2(0, -62)
-script = ExtResource("3_gopa4")
+script = ExtResource("7_qccmb")
 target_node = NodePath("../Hopper")
 
 [node name="FoliageSpawner" type="Node2D" parent="."]
-script = ExtResource("6_pgjv6")
+script = ExtResource("8_regcs")
 scale_min = 0.01
 scale_max = 0.04
 foliage_cnt = 1000
-foliage_scenes = Array[Texture2D]([ExtResource("6_34wln"), ExtResource("8_qugmk"), ExtResource("9_reui6"), ExtResource("10_xcm1e"), ExtResource("11_2rhh1"), ExtResource("12_s0608")])
+foliage_scenes = Array[Texture2D]([ExtResource("9_dkk2y"), ExtResource("10_ym7cy"), ExtResource("11_sr07q"), ExtResource("12_e6tjy"), ExtResource("13_pkrlk"), ExtResource("14_hvqmi")])
 
 [node name="CloudsSpawner" type="Node2D" parent="."]
-script = ExtResource("13_swwjy")
+script = ExtResource("15_3huvx")
 world_limit_x = 8000.0
 cloud_start_y = 400.0
 world_limit_y = 2000.0
 scale_min = 0.8
 scale_max = 1.2
 clouds_cnt = 50
-clouds_scenes = Array[Texture2D]([ExtResource("14_dt30p"), ExtResource("15_xjicp"), ExtResource("16_kx03f"), ExtResource("17_4jwtx"), ExtResource("18_stdfp")])
+clouds_scenes = Array[Texture2D]([ExtResource("16_k3vcf"), ExtResource("17_6ymob"), ExtResource("18_yo0n5"), ExtResource("19_lw352"), ExtResource("20_1yxvn")])
