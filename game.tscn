@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://b3dtw5sbn7274"]
+[gd_scene load_steps=29 format=3 uid="uid://b3dtw5sbn7274"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_88k0f"]
 [ext_resource type="Texture2D" uid="uid://dl7ycs1ynhdqf" path="res://hopper.png" id="1_ma4h7"]
 [ext_resource type="Script" path="res://hopper_controller.gd" id="1_rxux5"]
 [ext_resource type="Script" path="res://camera_follow.gd" id="3_gopa4"]
 [ext_resource type="AudioStream" uid="uid://fyx1pvxbus7f" path="res://rocket_engine.ogg" id="3_nrcaq"]
+[ext_resource type="PackedScene" uid="uid://brwskfdi77u5j" path="res://explosion.tscn" id="3_tkogy"]
 [ext_resource type="Texture2D" uid="uid://dpdf5x13sro56" path="res://foliage/sprite_0052.png" id="6_34wln"]
 [ext_resource type="Script" path="res://foliage_spawner.gd" id="6_pgjv6"]
 [ext_resource type="Texture2D" uid="uid://brma1kguvx52l" path="res://foliage/sprite_0053.png" id="8_qugmk"]
@@ -55,9 +56,6 @@ turbulence_initial_displacement_max = 30.7
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vw05s"]
 size = Vector2(46, 82)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3foxo"]
-size = Vector2(15996, 1992)
-
 [sub_resource type="Gradient" id="Gradient_lyp7o"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.352533, 0.64, 0.3264, 1)
@@ -67,6 +65,9 @@ gradient = SubResource("Gradient_lyp7o")
 width = 16000
 height = 2000
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3foxo"]
+size = Vector2(15996, 1992)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_88k0f")
 
@@ -75,12 +76,15 @@ position = Vector2(2, -64)
 mass = 100.0
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 5)
+max_contacts_reported = 1
+contact_monitor = true
 linear_damp = 1.419
 angular_damp = 1.892
 script = ExtResource("1_rxux5")
 force_power = 200000.0
 rotate_power = 0.5
 max_rotational_offset = 15.0
+particles_explosion = ExtResource("3_tkogy")
 
 [node name="ParticlesFire" type="GPUParticles2D" parent="Hopper"]
 unique_name_in_owner = true
@@ -99,14 +103,15 @@ shape = SubResource("RectangleShape2D_vw05s")
 unique_name_in_owner = true
 stream = ExtResource("3_nrcaq")
 
-[node name="Ground" type="StaticBody2D" parent="."]
+[node name="Ground" type="RigidBody2D" parent="."]
 position = Vector2(0, 1000)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-shape = SubResource("RectangleShape2D_3foxo")
+freeze = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
 texture = SubResource("GradientTexture2D_8o72e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_3foxo")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
 position = Vector2(0, -62)

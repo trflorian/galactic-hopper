@@ -4,6 +4,8 @@ extends RigidBody2D
 @export var rotate_power: float
 @export var max_rotational_offset: float
 
+@export var particles_explosion: PackedScene
+
 @onready var particles_fire: GPUParticles2D = %ParticlesFire
 @onready var audio_engine: AudioStreamPlayer2D = %AudioEngine
 
@@ -11,8 +13,9 @@ var rotational_offset: float = 0.0
 
 func _ready() -> void:
 	particles_fire.emitting = false
+	
+	body_entered.connect(_on_collison)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var is_throttling = false
 	if Input.is_action_pressed("throttle_right"):
@@ -36,3 +39,20 @@ func _process(delta: float) -> void:
 	particles_fire.emitting = is_throttling
 		
 	rotational_offset *= 0.9
+
+func _on_collison(body: Node) -> void:
+	print("collied with", body, "and velocity", linear_velocity.length())
+	var max_velocity = 10
+	if abs(rotation_degrees) < 20:
+		max_velocity = 200
+	if linear_velocity.length() > max_velocity:
+		_explode()
+
+func _explode() -> void:
+	var explosion = particles_explosion.instantiate()
+	explosion.position = global_position
+	explosion.rotation = global_rotation
+	explosion.emitting = true
+	get_tree().current_scene.add_child(explosion)
+	
+	queue_free()
