@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://d31x4j4vwnl8r"]
+[gd_scene load_steps=15 format=3 uid="uid://d31x4j4vwnl8r"]
 
+[ext_resource type="Script" path="res://game_manager.gd" id="1_88k0f"]
 [ext_resource type="Texture2D" uid="uid://dl7ycs1ynhdqf" path="res://hopper.png" id="1_ma4h7"]
 [ext_resource type="Script" path="res://hopper_controller.gd" id="1_rxux5"]
 [ext_resource type="Script" path="res://camera_follow.gd" id="3_gopa4"]
@@ -54,9 +55,10 @@ width = 16000
 height = 2000
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_88k0f")
 
 [node name="Hopper" type="RigidBody2D" parent="."]
-position = Vector2(-169, 47)
+position = Vector2(-169, 208)
 mass = 100.0
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 5)
@@ -95,5 +97,6 @@ shape = SubResource("RectangleShape2D_3foxo")
 texture = SubResource("GradientTexture2D_8o72e")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
+position = Vector2(-169, 208)
 script = ExtResource("3_gopa4")
 target_node = NodePath("../Hopper")
