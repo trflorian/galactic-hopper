@@ -62,9 +62,8 @@ center_of_mass = Vector2(0, 5)
 linear_damp = 1.419
 angular_damp = 1.892
 script = ExtResource("1_rxux5")
-force_power = 200000.0
-rotate_power = 0.5
-max_rotational_offset = 15.0
+force_power = 400000.0
+rotate_power = 0.1
 
 [node name="ParticlesFire" type="GPUParticles2D" parent="Hopper"]
 unique_name_in_owner = true
