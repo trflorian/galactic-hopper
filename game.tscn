@@ -1,10 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://d31x4j4vwnl8r"]
+[gd_scene load_steps=22 format=3 uid="uid://b3dtw5sbn7274"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_88k0f"]
 [ext_resource type="Texture2D" uid="uid://dl7ycs1ynhdqf" path="res://hopper.png" id="1_ma4h7"]
 [ext_resource type="Script" path="res://hopper_controller.gd" id="1_rxux5"]
 [ext_resource type="Script" path="res://camera_follow.gd" id="3_gopa4"]
-[ext_resource type="AudioStream" uid="uid://4mbejelgh2mv" path="res://rocket_engine.ogg" id="3_nrcaq"]
+[ext_resource type="AudioStream" uid="uid://fyx1pvxbus7f" path="res://rocket_engine.ogg" id="3_nrcaq"]
 [ext_resource type="Texture2D" uid="uid://dpdf5x13sro56" path="res://foliage/sprite_0052.png" id="6_34wln"]
 [ext_resource type="Script" path="res://foliage_spawner.gd" id="6_pgjv6"]
 [ext_resource type="Texture2D" uid="uid://brma1kguvx52l" path="res://foliage/sprite_0053.png" id="8_qugmk"]
@@ -79,7 +79,6 @@ max_rotational_offset = 15.0
 [node name="ParticlesFire" type="GPUParticles2D" parent="Hopper"]
 unique_name_in_owner = true
 position = Vector2(0, 28)
-scale = Vector2(1, 1)
 amount = 70
 process_material = SubResource("ParticleProcessMaterial_icb4k")
 
