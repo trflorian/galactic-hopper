@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d31x4j4vwnl8r"]
+[gd_scene load_steps=13 format=3 uid="uid://d31x4j4vwnl8r"]
 
 [ext_resource type="Texture2D" uid="uid://dl7ycs1ynhdqf" path="res://hopper.png" id="1_ma4h7"]
 [ext_resource type="Script" path="res://hopper_controller.gd" id="1_rxux5"]
+[ext_resource type="Script" path="res://camera_follow.gd" id="3_gopa4"]
 
 [sub_resource type="Gradient" id="Gradient_3egah"]
 offsets = PackedFloat32Array(0, 0.514539, 1)
@@ -40,7 +41,7 @@ turbulence_initial_displacement_max = 30.7
 size = Vector2(46, 82)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3foxo"]
-size = Vector2(1280, 64)
+size = Vector2(15996, 1992)
 
 [sub_resource type="Gradient" id="Gradient_lyp7o"]
 offsets = PackedFloat32Array(0)
@@ -48,7 +49,8 @@ colors = PackedColorArray(0.352533, 0.64, 0.3264, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8o72e"]
 gradient = SubResource("Gradient_lyp7o")
-width = 1280
+width = 16000
+height = 2000
 
 [node name="Node2D" type="Node2D"]
 
@@ -56,6 +58,7 @@ width = 1280
 position = Vector2(-169, 47)
 script = ExtResource("1_rxux5")
 force_power = 2000.0
+rotate_power = 1.0
 
 [node name="ParticlesFire" type="GPUParticles2D" parent="Hopper"]
 unique_name_in_owner = true
@@ -72,7 +75,7 @@ texture = ExtResource("1_ma4h7")
 shape = SubResource("RectangleShape2D_vw05s")
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(0, 309)
+position = Vector2(0, 1254)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource("RectangleShape2D_3foxo")
@@ -80,4 +83,6 @@ shape = SubResource("RectangleShape2D_3foxo")
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
 texture = SubResource("GradientTexture2D_8o72e")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
+script = ExtResource("3_gopa4")
+target_node = NodePath("../Hopper")
