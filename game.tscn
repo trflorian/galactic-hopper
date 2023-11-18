@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://d31x4j4vwnl8r"]
+
+[ext_resource type="Texture2D" uid="uid://dl7ycs1ynhdqf" path="res://hopper.png" id="1_ma4h7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vw05s"]
+size = Vector2(46, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3foxo"]
+size = Vector2(1280, 64)
+
+[sub_resource type="Gradient" id="Gradient_lyp7o"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.352533, 0.64, 0.3264, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8o72e"]
+gradient = SubResource("Gradient_lyp7o")
+width = 1280
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Hopper" type="RigidBody2D" parent="."]
+position = Vector2(-169, 47)
+
+[node name="Sprite" type="Sprite2D" parent="Hopper"]
+scale = Vector2(0.340136, 0.340136)
+texture = ExtResource("1_ma4h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hopper"]
+shape = SubResource("RectangleShape2D_vw05s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 309)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_3foxo")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = SubResource("GradientTexture2D_8o72e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
