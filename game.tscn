@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b3dtw5sbn7274"]
+[gd_scene load_steps=30 format=3 uid="uid://b3dtw5sbn7274"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_88k0f"]
 [ext_resource type="Texture2D" uid="uid://dl7ycs1ynhdqf" path="res://hopper.png" id="1_ma4h7"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bapfbqyr8rqxm" path="res://clouds/cloud2.png" id="16_kx03f"]
 [ext_resource type="Texture2D" uid="uid://27sh84qdbbum" path="res://clouds/cloud5.png" id="17_4jwtx"]
 [ext_resource type="Texture2D" uid="uid://dg7p10068t0ss" path="res://clouds/cloud6.png" id="18_stdfp"]
+[ext_resource type="PackedScene" uid="uid://bvr0no1f3tlvt" path="res://hopper_parts_spawner.tscn" id="20_bg15u"]
 
 [sub_resource type="Gradient" id="Gradient_3egah"]
 offsets = PackedFloat32Array(0, 0.514539, 1)
@@ -85,6 +86,7 @@ force_power = 200000.0
 rotate_power = 0.5
 max_rotational_offset = 15.0
 particles_explosion = ExtResource("3_tkogy")
+parts_explosion = ExtResource("20_bg15u")
 
 [node name="ParticlesFire" type="GPUParticles2D" parent="Hopper"]
 unique_name_in_owner = true

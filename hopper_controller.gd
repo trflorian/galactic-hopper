@@ -5,6 +5,7 @@ extends RigidBody2D
 @export var max_rotational_offset: float
 
 @export var particles_explosion: PackedScene
+@export var parts_explosion: PackedScene
 
 @onready var particles_fire: GPUParticles2D = %ParticlesFire
 @onready var audio_engine: AudioStreamPlayer2D = %AudioEngine
@@ -41,18 +42,26 @@ func _process(delta: float) -> void:
 	rotational_offset *= 0.9
 
 func _on_collison(body: Node) -> void:
-	print("collied with", body, "and velocity", linear_velocity.length())
-	var max_velocity = 10
+	print("body = ", body)
+	print("velocity = ",  round(linear_velocity.length()))
+	print("rotation = ",  round(abs(rotation_degrees)))
+	
+	var max_velocity = 2
 	if abs(rotation_degrees) < 20:
 		max_velocity = 200
 	if linear_velocity.length() > max_velocity:
-		_explode()
+		_explode(global_position)
 
-func _explode() -> void:
+func _explode(point: Vector2) -> void:
 	var explosion = particles_explosion.instantiate()
-	explosion.position = global_position
+	explosion.position = point
 	explosion.rotation = global_rotation
 	explosion.emitting = true
 	get_tree().current_scene.add_child(explosion)
+	
+	var parts = parts_explosion.instantiate()
+	parts.position = point
+	parts.rotation = global_rotation
+	get_tree().current_scene.add_child(parts)
 	
 	queue_free()

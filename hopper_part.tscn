@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://v2pjut7gtvdn"]
+
+[ext_resource type="Texture2D" uid="uid://dgve583m0ulj3" path="res://parts/part0.png" id="1_a0k5u"]
+[ext_resource type="Script" path="res://hopper_part.gd" id="1_r1ms8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cffyx"]
+
+[node name="HopperPart" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.5
+script = ExtResource("1_r1ms8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("1_a0k5u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cffyx")
