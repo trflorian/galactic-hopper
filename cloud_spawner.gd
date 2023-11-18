@@ -20,4 +20,5 @@ func _ready():
 		#inst.modulate = Color("59a253")
 		inst.scale = Vector2.ONE * inst_scale
 		inst.position = Vector2(randf_range(-world_limit_x, world_limit_x), -randf_range(cloud_start_y, world_limit_y))
+		inst.z_index = randi_range(-1, 1)
 		add_child(inst)
