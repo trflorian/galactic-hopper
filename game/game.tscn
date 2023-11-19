@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b3nkxetd7es1k"]
+[gd_scene load_steps=27 format=3 uid="uid://b3nkxetd7es1k"]
 
 [ext_resource type="Script" path="res://game/game_manager.gd" id="1_jd4hy"]
 [ext_resource type="Script" path="res://hopper/hopper_controller.gd" id="2_bsm74"]
@@ -21,38 +21,13 @@
 [ext_resource type="Texture2D" uid="uid://27sh84qdbbum" path="res://clouds/cloud5.png" id="19_lw352"]
 [ext_resource type="Texture2D" uid="uid://dg7p10068t0ss" path="res://clouds/cloud6.png" id="20_1yxvn"]
 
-[sub_resource type="Gradient" id="Gradient_3egah"]
-offsets = PackedFloat32Array(0, 0.514539, 1)
-colors = PackedColorArray(1, 1, 0, 1, 1, 0.514333, 0.06, 1, 0.180005, 0.180005, 0.180005, 0.721569)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_badq0"]
-gradient = SubResource("Gradient_3egah")
-
 [sub_resource type="Curve" id="Curve_6gix7"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_j2v7p"]
-curve = SubResource("Curve_6gix7")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_icb4k"]
-emission_shape = 3
-emission_box_extents = Vector3(10, 1, 1)
-particle_flag_disable_z = true
-direction = Vector3(0, 1, 0)
-spread = 21.17
-initial_velocity_min = 210.4
-initial_velocity_max = 375.88
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-scale_min = 4.0
-scale_max = 6.0
-scale_curve = SubResource("CurveTexture_j2v7p")
-color_ramp = SubResource("GradientTexture1D_badq0")
-turbulence_enabled = true
-turbulence_influence_min = 0.03
-turbulence_initial_displacement_min = -49.8
-turbulence_initial_displacement_max = 30.7
+[sub_resource type="Gradient" id="Gradient_3egah"]
+offsets = PackedFloat32Array(0, 0.514539, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.514333, 0.06, 1, 0.180005, 0.180005, 0.180005, 0.721569)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vw05s"]
 size = Vector2(46, 82)
@@ -88,11 +63,23 @@ max_rotational_offset = 15.0
 particles_explosion = ExtResource("3_vcyqk")
 parts_explosion = ExtResource("4_2gcai")
 
-[node name="ParticlesFire" type="GPUParticles2D" parent="Hopper"]
+[node name="ParticlesFire" type="CPUParticles2D" parent="Hopper"]
 unique_name_in_owner = true
 position = Vector2(0, 28)
 amount = 70
-process_material = SubResource("ParticleProcessMaterial_icb4k")
+fixed_fps = 30
+draw_order = 1
+emission_shape = 3
+emission_rect_extents = Vector2(10, 1)
+direction = Vector2(0, 1)
+spread = 21.17
+gravity = Vector2(0, -9.8)
+initial_velocity_min = 210.4
+initial_velocity_max = 375.88
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_6gix7")
+color_ramp = SubResource("Gradient_3egah")
 
 [node name="Sprite" type="Sprite2D" parent="Hopper"]
 scale = Vector2(0.340136, 0.340136)

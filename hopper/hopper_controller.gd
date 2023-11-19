@@ -7,7 +7,7 @@ extends RigidBody2D
 @export var particles_explosion: PackedScene
 @export var parts_explosion: PackedScene
 
-@onready var particles_fire: GPUParticles2D = %ParticlesFire
+@onready var particles_fire: CPUParticles2D = %ParticlesFire
 @onready var audio_engine: AudioStreamPlayer2D = %AudioEngine
 
 var rotational_offset: float = 0.0
