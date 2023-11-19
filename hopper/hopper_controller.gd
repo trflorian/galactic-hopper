@@ -49,9 +49,9 @@ func _on_collison(body: Node) -> void:
 	print("velocity = ",  round(linear_velocity.length()))
 	print("rotation = ",  round(abs(rotation_degrees)))
 	
-	var max_velocity = 2
+	var max_velocity = 0.1
 	if abs(rotation_degrees) < 20:
-		max_velocity = 200
+		max_velocity = 150.0
 	if linear_velocity.length() > max_velocity:
 		_explode(global_position)
 

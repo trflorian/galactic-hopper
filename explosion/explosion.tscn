@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://udrmyly50ywo"]
 
-[ext_resource type="AudioStream" uid="uid://e0otb7plxv60" path="res://explosion/explosion.ogg" id="1_2s0ie"]
+[ext_resource type="AudioStream" uid="uid://0hfprtafh6oi" path="res://explosion/explosion.wav" id="1_c1m7y"]
 
 [sub_resource type="Gradient" id="Gradient_efqlt"]
 offsets = PackedFloat32Array(0.395702, 1)
@@ -42,5 +42,5 @@ one_shot = true
 explosiveness = 1.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("1_2s0ie")
+stream = ExtResource("1_c1m7y")
 autoplay = true

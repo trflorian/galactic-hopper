@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://udrmyly50ywo" path="res://explosion/explosion.tscn" id="3_vcyqk"]
 [ext_resource type="PackedScene" uid="uid://bvr0no1f3tlvt" path="res://parts/hopper_parts_spawner.tscn" id="4_2gcai"]
 [ext_resource type="Texture2D" uid="uid://dl7ycs1ynhdqf" path="res://hopper/hopper.png" id="5_ysa5t"]
-[ext_resource type="AudioStream" uid="uid://fyx1pvxbus7f" path="res://hopper/rocket_engine.ogg" id="6_d028x"]
+[ext_resource type="AudioStream" uid="uid://rpcj80totqrc" path="res://hopper/rocket_engine.wav" id="6_cbbtx"]
 [ext_resource type="Script" path="res://game/camera_follow.gd" id="7_qccmb"]
 [ext_resource type="Script" path="res://foliage/foliage_spawner.gd" id="8_regcs"]
 [ext_resource type="Texture2D" uid="uid://dpdf5x13sro56" path="res://foliage/sprite_0052.png" id="9_dkk2y"]
@@ -73,7 +73,7 @@ size = Vector2(15996, 1992)
 script = ExtResource("1_jd4hy")
 
 [node name="Hopper" type="RigidBody2D" parent="."]
-position = Vector2(2, -64)
+position = Vector2(0, -36)
 mass = 100.0
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 5)
@@ -103,7 +103,7 @@ shape = SubResource("RectangleShape2D_vw05s")
 
 [node name="AudioEngine" type="AudioStreamPlayer2D" parent="Hopper"]
 unique_name_in_owner = true
-stream = ExtResource("6_d028x")
+stream = ExtResource("6_cbbtx")
 
 [node name="Ground" type="RigidBody2D" parent="."]
 position = Vector2(0, 1000)
@@ -116,7 +116,7 @@ texture = SubResource("GradientTexture2D_8o72e")
 shape = SubResource("RectangleShape2D_3foxo")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
-position = Vector2(0, -62)
+position = Vector2(0, -36)
 script = ExtResource("7_qccmb")
 target_node = NodePath("../Hopper")
 
