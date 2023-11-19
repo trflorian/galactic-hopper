@@ -13,8 +13,8 @@ config_version=5
 config/name="Galactic Hopper"
 run/main_scene="res://game/game.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
-config/icon="res://logo.png"
-config/windows_native_icon="res://logo.ico"
+config/icon="res://logo/logo.png"
+config/windows_native_icon="res://logo/logo.ico"
 
 [input]
 
