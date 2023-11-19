@@ -10,8 +10,8 @@ https://www.youtube.com/watch?v=ROQEpISxEMw
 
 | Input | Action |
 |---|---|
-| A / Left Arrow / Left Mouse Button | Left Thruster |
-| D / Right Arrow / Right Mouse Button | Right Thruster |
+| A / Left Arrow / Left Screen | Left Thruster |
+| D / Right Arrow / Right Screen | Right Thruster |
 | R | Reload level |
 
 # 🎨 Assets 
