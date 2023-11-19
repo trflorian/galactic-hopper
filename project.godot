@@ -42,5 +42,6 @@ reset={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.470588, 0.615686, 0.768627, 1)
 anti_aliasing/quality/screen_space_aa=1
