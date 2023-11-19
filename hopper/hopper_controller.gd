@@ -13,19 +13,31 @@ extends RigidBody2D
 var rotational_offset: float = 0.0
 var is_audio_playing: bool = false
 
+var input_throttle_left: bool = false
+var input_throttle_right: bool = false
+
 func _ready() -> void:
 	particles_fire.emitting = false
 	
 	body_entered.connect(_on_collison)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton or event is InputEventScreenTouch:
+		var screen_width = get_viewport().get_visible_rect().size.x
+		var rel_x = event.position.x / screen_width
+		if rel_x < 0.5:
+			input_throttle_left = event.pressed
+		else:
+			input_throttle_right = event.pressed
+
 func _process(_delta: float) -> void:
 	var is_throttling = false
-	if Input.is_action_pressed("throttle_right"):
-		is_throttling = true
-		rotational_offset -= 1
-	if Input.is_action_pressed("throttle_left"):
+	if Input.is_action_pressed("throttle_left") or input_throttle_left:
 		is_throttling = true
 		rotational_offset += 1
+	if Input.is_action_pressed("throttle_right") or input_throttle_right:
+		is_throttling = true
+		rotational_offset -= 1
 	
 	rotational_offset = clampf(rotational_offset, -max_rotational_offset, max_rotational_offset)
 	
@@ -66,5 +78,7 @@ func _explode(point: Vector2) -> void:
 	parts.position = point
 	parts.rotation = global_rotation
 	get_tree().current_scene.add_child(parts)
+	
+	GameManager.start_reset_scene_timer()
 	
 	queue_free()
