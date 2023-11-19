@@ -11,13 +11,14 @@ extends RigidBody2D
 @onready var audio_engine: AudioStreamPlayer2D = %AudioEngine
 
 var rotational_offset: float = 0.0
+var is_audio_playing: bool = false
 
 func _ready() -> void:
 	particles_fire.emitting = false
 	
 	body_entered.connect(_on_collison)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var is_throttling = false
 	if Input.is_action_pressed("throttle_right"):
 		is_throttling = true
@@ -30,9 +31,11 @@ func _process(delta: float) -> void:
 	
 	if is_throttling:
 		apply_force(-transform.y * force_power, transform.x * rotational_offset * rotate_power)
-		if not audio_engine.playing:
+		if not is_audio_playing:
+			is_audio_playing = true
 			audio_engine.play()
 	else:
+		is_audio_playing = false
 		audio_engine.stop()
 		rotational_offset = 0.0
 		

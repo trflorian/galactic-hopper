@@ -14,7 +14,7 @@ config/name="Galactic Hopper"
 run/main_scene="res://game/game.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://logo.png"
-config/windows_native_icon="res://favicon.ico"
+config/windows_native_icon="res://logo.ico"
 
 [input]
 
@@ -43,5 +43,4 @@ reset={
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.470588, 0.615686, 0.768627, 1)
-anti_aliasing/quality/msaa_2d=3
 anti_aliasing/quality/screen_space_aa=1
